@@ -1,0 +1,42 @@
+{
+  "name": "insight-ui-iop",
+  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the IoP network and build your own services with it.",
+  "version": "0.1.0",
+  "repository": "git://github.com/hendry19901990/insight-ui-iop.git",
+  "contributors": [
+    {
+      "name": "Hendry Rodriguez",
+      "email": "hendryrodriguez1990@gmail.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/hendry19901990/insight-ui-iop/issues"
+  },
+  "homepage": "https://github.com/hendry19901990/insight-ui-iop",
+  "license": "MIT",
+  "keywords": [
+    "insight",
+    "blockchain",
+    "blockexplorer",
+    "IoP",
+    "Internet of People",
+    "iopcore",
+    "front-end"
+  ],
+  "iopcoreNode": "iopcore-node",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bower": "~1.2.8",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-watch": "*",
+    "grunt-macreload": "*",
+    "grunt-css": "~0.5.4",
+    "grunt-markdown": "~0.5.0",
+    "grunt-angular-gettext": "^0.2.15"
+  }
+}
