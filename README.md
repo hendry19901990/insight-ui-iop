@@ -19,7 +19,7 @@ Open a web browser to `http://localhost:3001/insight/`
 
 ## Development
 
-To run Insight UI Dash locally in development mode:
+To run Insight UI IoP locally in development mode:
 
 Install bower dependencies:
 
