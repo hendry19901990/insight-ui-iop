@@ -45,7 +45,8 @@ angular.module('insight.currency').controller('CurrencyController',
 
       if (currency === 'USD') {
         Currency.get({}, function(res) {
-          $rootScope.currency.factor = $rootScope.currency.bitstamp = res.data.bitstamp;
+          $rootScope.currency.factor   = res.data.iop_usd;
+          $rootScope.currency.bitstamp = res.data.bitstamp;
         });
       } else if (currency === 'mIOP') {
         $rootScope.currency.factor = 1000;
