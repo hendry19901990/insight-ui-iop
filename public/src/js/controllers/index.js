@@ -2,6 +2,7 @@
 
 var TRANSACTION_DISPLAYED = 10;
 var BLOCKS_DISPLAYED = 5;
+var COIN = 100000000;
 
 angular.module('insight.system').controller('IndexController',
   function($scope, Global, getSocket, Blocks) {
@@ -21,6 +22,7 @@ angular.module('insight.system').controller('IndexController',
     var _startSocket = function() { 
       socket.emit('subscribe', 'inv');
       socket.on('tx', function(tx) {
+		tx.valueOut = tx.valueOut / COIN;
         $scope.txs.unshift(tx);
         if (parseInt($scope.txs.length, 10) >= parseInt(TRANSACTION_DISPLAYED, 10)) {
           $scope.txs = $scope.txs.splice(0, TRANSACTION_DISPLAYED);
