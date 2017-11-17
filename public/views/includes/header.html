@@ -43,16 +43,12 @@
       </li>
 	   <li>
       <div class="status">
-	       <div data-ng-init="startSupply()" class="pull-left">
+	       <div data-ng-init="startSupply()" class="">
 		       <span>
-			       <strong>Total Supply</strong>  {{Supply}}
+			       <strong>Supply</strong>  {{Supply}}
 		       </span>
 	       </div>
 	  </div>
-      </li>
-      <li>
-        <a data-ng-click="openScannerModal()"><span class="glyphicon
-            glyphicon-qrcode"></span> Scan</a>
       </li>
       <li class="dropdown" data-ng-controller="CurrencyController" data-ng-include="'views/includes/currency.html'"></li>
       </ul>
