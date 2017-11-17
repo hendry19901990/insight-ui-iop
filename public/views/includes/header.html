@@ -13,7 +13,7 @@
       </a>
       </div>
     </div>
-    <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
+    <div class="navbar-collapse collapse" collapse="$root.isCollapsed"  data-ng-controller="StatusController">
       <ul class="nav navbar-nav">
         <li data-ng-repeat="item in menu" ui-route="{{item.link}}" data-ng-class="{active: $uiRoute}">
           <a href="{{item.link}}">{{item.title|translate}}</a>
@@ -22,7 +22,7 @@
       <span class="hidden-xs navbar-form navbar-left" data-ng-include src="'views/includes/search.html'"></span>
       <ul class="nav navbar-nav navbar-right">
         <li>
-      <div class="status" data-ng-controller="StatusController">
+      <div class="status">
         <div data-ng-init="getSync()" class="pull-left">
           <span class="t text-danger"  data-ng-show="sync.error" tooltip="{{sync.error}}" tooltip-placement="bottom">
               <span  class="glyphicon glyphicon-warning-sign"></span>
@@ -40,6 +40,15 @@
         </span> &middot;
         <strong>{{'Height'|translate}}</strong> {{totalBlocks || info.blocks}}
       </div>
+      </li>
+	   <li>
+      <div class="status">
+	       <div data-ng-init="startSupply()" class="pull-left">
+		       <span>
+			       <strong>Total Supply</strong>  {{Supply}}
+		       </span>
+	       </div>
+	  </div>
       </li>
       <li>
         <a data-ng-click="openScannerModal()"><span class="glyphicon

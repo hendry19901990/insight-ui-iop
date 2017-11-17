@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('insight.status').controller('StatusController',
-  function($scope, $routeParams, $location, Global, Status, Sync, getSocket) {
+  function($scope, $routeParams, $location, Global, Status, Sync, getSocket, Supply) {
     $scope.global = Global;
+	
+	var totalCoins = 0;
 
     $scope.getStatus = function(q) {
       Status.get({
@@ -21,6 +23,18 @@ angular.module('insight.status').controller('StatusController',
       var m = moment.unix(time / 1000);
       return m.max().fromNow();
     };
+	
+	
+	$scope.startSupply = function(){
+		Supply.get({},
+		 function(data){
+			$scope.Supply = data.coins;
+		 },
+		  function(e) {
+			$scope.Supply = totalCoins;
+		  }
+		);
+	};
 
     var _onSyncUpdate = function(sync) {
       $scope.sync = sync;

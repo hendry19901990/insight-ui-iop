@@ -10,6 +10,10 @@ angular.module('insight.status')
   .factory('Sync',
     function($resource) {
       return $resource(window.apiPrefix + '/sync');
+    })  
+  .factory('Supply',
+    function($resource) {
+      return $resource(window.apiPrefix + '/totalsupply');
     })
   .factory('PeerSync',
     function($resource) {
