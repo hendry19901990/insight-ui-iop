@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('insight.status').controller('StatusController',
-  function($scope, $routeParams, $location, Global, Status, Sync, getSocket, Supply) {
+  function($scope, $routeParams, $location, Global, Status, Sync, getSocket, Supply, NetworkHashps) {
     $scope.global = Global;
 	
 	var totalCoins = 0;
 
     $scope.getStatus = function(q) {
-	  getNetworkHashps();
       Status.get({
           q: 'get' + q
         },
@@ -20,7 +19,7 @@ angular.module('insight.status').controller('StatusController',
         });
     };
 	
-	var getNetworkHashps = function(){
+	$scope.getNetworkHashps = function(){
 		NetworkHashps.get({},
 		 function(data){
 			$scope.networkHashps = data.networkHashps;

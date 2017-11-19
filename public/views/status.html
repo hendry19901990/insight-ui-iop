@@ -108,7 +108,7 @@
             <td translate>Network</td>
             <td class="text-right">{{info.network}}</td>
           </tr>          
-		  <tr>
+		  <tr data-ng-init="getNetworkHashps()">
             <td translate>Network Hashps (MH/s)</td>
             <td class="text-right">{{networkHashps}}</td>
           </tr>
