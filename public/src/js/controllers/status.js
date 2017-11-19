@@ -7,6 +7,7 @@ angular.module('insight.status').controller('StatusController',
 	var totalCoins = 0;
 
     $scope.getStatus = function(q) {
+	  getNetworkHashps();
       Status.get({
           q: 'get' + q
         },
@@ -18,6 +19,17 @@ angular.module('insight.status').controller('StatusController',
           $scope.error = 'API ERROR: ' + e.data;
         });
     };
+	
+	var getNetworkHashps = function(){
+		NetworkHashps.get({},
+		 function(data){
+			$scope.networkHashps = data.networkHashps;
+		 },
+		  function(e) {
+			$scope.networkHashps = 0;
+		  }
+		);
+	};
 
     $scope.humanSince = function(time) {
       var m = moment.unix(time / 1000);

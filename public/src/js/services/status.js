@@ -15,6 +15,10 @@ angular.module('insight.status')
     function($resource) {
       return $resource(window.apiPrefix + '/totalsupply');
     })
+  .factory('NetworkHashps',
+    function($resource) {
+      return $resource(window.apiPrefix + '/networkhashps');
+    })
   .factory('PeerSync',
     function($resource) {
       return $resource(window.apiPrefix + '/peer');
