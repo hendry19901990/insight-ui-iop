@@ -1,7 +1,7 @@
 {
-  "name": "insight-ui-iop",
+  "name": "insight-ui-iop-testnet",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the IoP network and build your own services with it.",
-  "version": "0.1.5",
+  "version": "0.1.0",
   "repository": "git://github.com/hendry19901990/insight-ui-iop.git",
   "contributors": [
     {
@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/hendry19901990/insight-ui-iop/issues"
   },
-  "homepage": "https://github.com/hendry19901990/insight-ui-iop",
+  "homepage": "https://github.com/hendry19901990/insight-ui-iop/tree/testnet",
   "license": "MIT",
   "keywords": [
     "insight",

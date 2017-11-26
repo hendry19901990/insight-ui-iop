@@ -11,7 +11,7 @@ npm install -g iopcore-node
 iopcore-node create mynode
 cd mynode
 iopcore-node install insight-api-iop
-iopcore-node install insight-ui-iop
+iopcore-node install insight-ui-iop-testnet
 iopcore-node start
 ```
 
