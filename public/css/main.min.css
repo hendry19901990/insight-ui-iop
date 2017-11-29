@@ -21,7 +21,9 @@
 #search::-webkit-input-placeholder{color:#CFE3F4;font-family:Montserrat,sans-serif;font-style:italic;font-weight:100}
 #search::-moz-placeholder{color:#CFE3F4;font-family:Montserrat,sans-serif;font-weight:100}
 .status{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#345672;border-radius:3px;margin:15px 0;padding:8px 10px;font-size:12px;color:#eee;text-align:center;margin-right:10px}
+.status2{-moz-border-radius:3px;-webkit-border-radius:3px;background-color:#345672;border-radius:3px;margin:15px 0;padding:8px 10px;font-size:12px;color:#eee;text-align:center;margin-right:10px}
 .status .tooltip{margin:0}.col-gray{-moz-border-radius:5px;-webkit-border-radius:5px;background-color:#F4F4F4;border-radius:5px;padding:14px;border:1px solid #eee}
+.status2 .tooltip{margin:0}.col-gray{-moz-border-radius:5px;-webkit-border-radius:5px;background-color:#F4F4F4;border-radius:5px;padding:14px;border:1px solid #eee}
 .col-gray-responsive{width:auto}
 .col-gray-fixed{margin-top:15px;position:fixed;width:250px;border:1px solid #eee;z-index:1}
 .ellipsis{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -79,8 +81,11 @@
 .badge-inverse{background-color:#333}
 .badge-inverse:hover{background-color:#1a1a1a}
 .status .t{color:#fff}
+.status2 .t{color:#fff}
 .status .text-danger{background:red}
+.status2 .text-danger{background:red}
 .status .text-warning{background:#ff0;color:#000}
+.status2 .text-warning{background:#ff0;color:#000}
 .btn-copy{color:#9b9b9b;display:inline-block;height:16px;width:16px;outline:0;vertical-align:sub}
 .btn-expand{color:#9b9b9b;vertical-align:middle}
 .btn-copy:hover,.btn-expand:hover{color:#000;text-decoration:none}
@@ -116,6 +121,7 @@ a.v_highlight_more{background-color:#cfe3f4;color:#333}
 #search-form-mobile{margin-top:15px}
 @media (max-width:991px){
 	.status{display:none}
+	.status2{display:none}
 	.navbar-form{width:auto}
 	.btn-copy{display:none}
 	.col-gray-fixed{position:static;width:100%;margin-top:0;padding:0}
@@ -152,6 +158,13 @@ a.v_highlight_more{background-color:#cfe3f4;color:#333}
 	.txvalues-default{background:0;color:#A09E9E}
 	.txvalues-danger{background:0;color:#AC0015}
 	.btn-expand{font-size:18px}
+	.status2{
+		display: -webkit-inline-box;
+		position: fixed;
+		top: -2px;
+		left: 25%;
+        right: 20%;
+	}
 }
 @media (min-width:1200px){
 	.col-gray-fixed{width:280px}
