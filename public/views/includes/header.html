@@ -1,5 +1,5 @@
-<div class="container">
-  <div data-ng-controller="HeaderController">
+<div class="container" data-ng-controller="HeaderController">
+  <div data-ng-controller="StatusController" data-ng-init="startSupply()">
     <div class="navbar-header" style="margin-top: 5px;">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-click="$root.isCollapsed = !$root.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -7,13 +7,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+	  <div class="status2" hidden>
+	       <div  class="">
+		       <span>
+			       <strong>Supply</strong>  {{Supply}}
+		       </span>
+	       </div>
+	  </div>
       <div>
         <a class="insight navbar-brand" href="." style="">
         <img src="./img/ioplogo_testnet.png" style=" height:65px; margin-top: -23px;" alt="IoP">
       </a>
       </div>
     </div>
-    <div class="navbar-collapse collapse" collapse="$root.isCollapsed"  data-ng-controller="StatusController">
+    <div class="navbar-collapse collapse" collapse="$root.isCollapsed"  >
       <ul class="nav navbar-nav">
         <li data-ng-repeat="item in menu" ui-route="{{item.link}}" data-ng-class="{active: $uiRoute}">
           <a href="{{item.link}}">{{item.title|translate}}</a>
@@ -43,7 +50,7 @@
       </li>
 	   <li>
       <div class="status">
-	       <div data-ng-init="startSupply()" class="">
+	       <div  class="">
 		       <span>
 			       <strong>Supply</strong>  {{Supply}}
 		       </span>
