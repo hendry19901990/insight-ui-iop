@@ -541,7 +541,7 @@ msgstr "採掘された"
 msgid "mined on:"
 msgstr "採掘日時:"
 
-#~ msgid "(Mainchain)"
+#~ msgid "(Testnet3)"
 #~ msgstr "(メインチェーン)"
 
 #~ msgid "(Orphaned)"
