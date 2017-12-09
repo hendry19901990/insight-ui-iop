@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.blocks').controller('BlocksController',
-  function($scope, $rootScope, $routeParams, $location, Global, Block, Blocks, BlockByHeight) {
+  function($scope, $rootScope, $routeParams, $location, Global, Block, Blocks, BlockByHeight, Richlist) {
   $scope.global = Global;
   $scope.loading = false;
 
@@ -94,6 +94,108 @@ angular.module('insight.blocks').controller('BlocksController',
       $location.path('/');
     });
   };
+  
+  $scope.richlist = function() {
+	  $scope.loading = true;
+	  var page = ($routeParams.page) ? $routeParams.page : 1;
+          var nextPage_ = parseInt(page) + 1;
+	  $scope.pageactual = (page==1)? 0 : ((page-1)*20);
+	  var previouspageEnable = (page > 1) ? true: false;
+	  Richlist.get({
+		  page: page
+	  },
+	  function(list_) {
+		  //list_.list.sort(function(a, b){return b.balance - a.balance});
+		  $scope.listaddress = list_.list;
+		  $scope.totalsupply = list_.totalsupply;
+		  $scope.loading = false;
+		  var numberPages = parseInt(list_.count / 20);
+		  var nextpageEnable = ((page+1) <= numberPages) ? true : false;
+		  $scope.lastpage = numberPages;
+		  var begin = 1;
+		  var finalPage = 1;
+		 
+		 //page actual ?
+		if (page == 1){
+		  begin = page;
+		  var finalP =  4;
+		  while(finalP > numberPages){
+			  finalP--;
+		  } 
+		   finalPage = finalP;
+		}else if (page == numberPages){
+		  finalPage = page;
+		  var initP = page - 4;
+		   while(initP < 1){
+			  initP++;
+		  }
+		   begin = initP;
+		}else{
+                  
+		  var lval = page - 1;
+		  var rval = numberPages - page;
+		  
+		  if (lval == rval){
+			  begin = page;
+			  finalPage = page;
+		  }
+		  
+		  if (lval < rval){
+			  var initP  = page - 1;
+			  begin = initP;
+			  var finalP = initP + 4;
+			  while(finalP > numberPages){
+				  finalP--;
+			  }
+			  finalPage = finalP;
+		  }else{
+			  var finalP = page + 3;
+			  
+			   while(finalP > numberPages){
+				 finalP--;
+			   }
+			  
+			  finalPage = finalP;
+			  var initP  = finalP - 4;
+			  while(initP < 1){
+					finalP++;
+			  }
+			  begin = initP;
+		  }
+		}
+                console.log(page);
+		console.log(begin, finalPage);
+
+		var pages = [];
+		var previousID = (previouspageEnable) ? page - 1 : 1;
+		
+		if (page > 1)
+		  pages.push({id: 1, label: "First", disabled: ''});
+	  
+		pages.push({id: previousID, label: "Previous", disabled: ((!previouspageEnable)?'disabled': '')});
+		var i;
+		for(i = begin; i <=finalPage; i++ ){
+		  var disabled_ = (i == page)? 'disabled' : '';
+		  pages.push({id: i, label: i, disabled: disabled_});
+		}
+		//var nextP = (nextpageEnable) ? nextPage_ : numberPages;
+
+		if (page != numberPages)
+		   pages.push({id: nextPage_, label: "Next", disabled: ''});
+
+
+		  
+	    if (page != numberPages)
+		   pages.push({id: numberPages, label: "Last", disabled: ''});
+	
+            $scope.pages = [];
+	    $scope.pages = pages;
+		  
+	  },
+	  function(e) {
+		  $rootScope.flashMessage = 'Error in Request';
+	  });
+   };
 
   $scope.params = $routeParams;
 

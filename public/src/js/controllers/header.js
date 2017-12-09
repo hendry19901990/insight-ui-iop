@@ -16,6 +16,9 @@ angular.module('insight.system').controller('HeaderController',
     }, {
       'title': 'Status',
       'link': 'status'
+    }, {
+      'title': 'Richlist',
+      'link': 'richlist'
     }];
 
     $scope.openScannerModal = function() {

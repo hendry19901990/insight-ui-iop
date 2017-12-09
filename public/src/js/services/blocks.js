@@ -21,6 +21,11 @@ angular.module('insight.blocks')
       }
     });
   })
+  .factory('Richlist',
+    function($resource) {
+      return $resource(window.apiPrefix + '/richlist');
+  })
+  
   .factory('Blocks',
     function($resource) {
       return $resource(window.apiPrefix + '/blocks');
