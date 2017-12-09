@@ -19,10 +19,10 @@
         <tr class="fader" data-ng-repeat='address in listaddress'>
 		  <td>{{  (pageactual) + ($index+1) }} </td>
           <td><a href="address/{{address.a_id}}">{{address.a_id}}</a></td>
-          <td class="text-right">{{address.balance}}</td>
+          <td class="text-right">{{(address.balance/1e8)}}</td>
           <td class="text-right">{{address.sizetxs}}</td>
-          <td class="text-right" ng-if="address.balance > 0">{{ ((address.balance*100) / totalsupply).toFixed(2) }} %</td>
-          <td class="text-right" ng-if="address.balance <= 0"> 0 %</td>
+          <td class="text-right" ng-if="address.balance > 0">{{ (( (address.balance/1e8) * 100) / (totalsupply/1e8) ).toFixed(2) }} %</td>
+          <td class="text-right" ng-if="address.balance <= 0"> {{address.owned}} %</td>
         </tr>
         </tbody>
       </table>
