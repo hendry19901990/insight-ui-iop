@@ -98,7 +98,8 @@ angular.module('insight.blocks').controller('BlocksController',
   $scope.richlist = function() {
 	  $scope.loading = true;
 	  var page = ($routeParams.page) ? $routeParams.page : 1;
-          var nextPage_ = parseInt(page) + 1;
+	  page = parseInt(page);
+      var nextPage_ = page + 1;
 	  $scope.pageactual = (page==1)? 0 : ((page-1)*20);
 	  var previouspageEnable = (page > 1) ? true: false;
 	  Richlist.get({
@@ -163,15 +164,14 @@ angular.module('insight.blocks').controller('BlocksController',
 			  begin = initP;
 		  }
 		}
-                console.log(page);
-		console.log(begin, finalPage);
+
 
 		var pages = [];
 		var previousID = (previouspageEnable) ? page - 1 : 1;
-		
-		if (page > 1)
+
+   		if (page > 1)
 		  pages.push({id: 1, label: "First", disabled: ''});
-	  
+
 		pages.push({id: previousID, label: "Previous", disabled: ((!previouspageEnable)?'disabled': '')});
 		var i;
 		for(i = begin; i <=finalPage; i++ ){
@@ -187,6 +187,8 @@ angular.module('insight.blocks').controller('BlocksController',
 		  
 	    if (page != numberPages)
 		   pages.push({id: numberPages, label: "Last", disabled: ''});
+
+      	    console.log(pages);
 	
             $scope.pages = [];
 	    $scope.pages = pages;
