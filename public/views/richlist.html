@@ -1,0 +1,35 @@
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="BlocksController" data-ng-init="richlist()">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th >Rank</th>
+            <th >Address</th>
+            <th class="text-right" translate>Balance</th>
+            <th class="text-right" translate>Transactions</th>
+            <th class="text-right" translate>Supply Owned </th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-show="loading">
+          <td colspan="5"><span translate>Waiting for richlist...</span> <span class="loader-gif"></span></td>
+        </tr>
+        <tr class="fader" data-ng-repeat='address in listaddress'>
+		  <td>{{  (pageactual) + ($index+1) }} </td>
+          <td><a href="address/{{address.a_id}}">{{address.a_id}}</a></td>
+          <td class="text-right">{{(address.balance/1e8)}}</td>
+          <td class="text-right">{{address.sizetxs}}</td>
+          <td class="text-right" ng-if="address.balance > 0">{{ (( (address.balance/1e8) * 100) / (totalsupply/1e8) ).toFixed(2) }} %</td>
+          <td class="text-right" ng-if="address.balance <= 0"> {{address.owned}} %</td>
+        </tr>
+        </tbody>
+      </table>
+	  <ul class="pagination" data-ng-repeat='p in pages'>
+		<li class="page-item {{p.disabled}}"><a class="page-link" href="richlist?page={{p.id}}">{{p.label}}</a></li>
+	  </ul>
+    </div>
+  </div>
+</section>
+
